@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built to Lead — Rajiv Harry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:   #2C6E6A;
+      --clay:   #8B6F5E;
+      --amber:  #C4944A;
+      --cream:  #F5F0EB;
+      --black:  #1C1C1C;
+      --teal-light: #3a8a85;
+      --cream-dark: #EDE6DC;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--black);
+      background: var(--cream);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    h5, h6, label, nav, .tag, .step-number, .cta-btn {
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    p { margin-bottom: 1.25rem; }
+    p:last-child { margin-bottom: 0; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ─── Pages ─── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ─── Navigation ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--clay);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    nav ul li a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      padding: 0.45rem 0.75rem;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    nav ul li a:hover { color: var(--teal); background: rgba(44,110,106,0.07); }
+    nav ul li a.active { color: var(--teal); font-weight: 600; }
+
+    nav ul li.cta-nav a {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+    }
+
+    nav ul li.cta-nav a:hover {
+      background: var(--teal-light);
+      color: var(--white);
+    }
+
+    /* ─── Hamburger ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 1rem 2rem;
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu ul li { border-bottom: 1px solid var(--cream-dark); }
+    .mobile-menu ul li a {
+      display: block;
+      padding: 0.75rem 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ─── Common Components ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    .section-dark {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .section-clay {
+      background: var(--cream-dark);
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .section-dark .section-label { color: var(--amber); }
+
+    h2.section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-dark h2.section-title { color: var(--white); }
+    .section-dark p { color: rgba(255,255,255,0.88); }
+    .section-dark h3 { color: var(--white); }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--amber);
+      margin: 1.5rem 0;
+      border-radius: 2px;
+    }
+
+    /* ─── Buttons ─── */
+    .cta-btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+    }
+
+    .cta-btn:hover { transform: translateY(-1px); }
+
+    .cta-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .cta-primary:hover { background: var(--teal-light); color: var(--white); }
+
+    .cta-outline {
+      background: transparent;
+      color: var(--teal);
+      border: 2px solid var(--teal);
+    }
+
+    .cta-outline:hover { background: var(--teal); color: var(--white); }
+
+    .cta-amber {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .cta-amber:hover { background: #b8863e; color: var(--white); }
+
+    .cta-white {
+      background: var(--white);
+      color: var(--teal);
+    }
+
+    .cta-white:hover { background: var(--cream); }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: var(--teal);
+      color: var(--white);
+      padding: 7rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(196,148,74,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 820px;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.12;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero-sub {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.82);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Pull Quote ─── */
+    .pull-quote {
+      border-left: 4px solid var(--amber);
+      padding: 1.5rem 2rem;
+      margin: 3rem 0;
+      background: rgba(196,148,74,0.07);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .pull-quote cite {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--clay);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Steps ─── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step-card {
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--cream-dark);
+      border-top: 4px solid var(--amber);
+    }
+
+    .section-dark .step-card {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.15);
+      border-top-color: var(--amber);
+    }
+
+    .step-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-dark .step-card h3 { color: var(--white); }
+
+    .step-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .section-dark .step-card p { color: rgba(255,255,255,0.75); }
+
+    /* ─── Checklist ─── */
+    .checklist {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .checklist li {
+      padding: 0.65rem 0 0.65rem 2rem;
+      position: relative;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 1rem;
+      color: var(--black);
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .checklist li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .section-dark .checklist li { color: rgba(255,255,255,0.88); border-bottom-color: rgba(255,255,255,0.1); }
+
+    /* ─── Two-col layout ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .two-col.reverse { direction: rtl; }
+    .two-col.reverse > * { direction: ltr; }
+
+    /* ─── About card ─── */
+    .about-card {
+      background: var(--teal);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .about-card .section-label { color: var(--amber); }
+    .about-card h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .about-card .subtitle { color: rgba(255,255,255,0.7); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .about-card p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.8; }
+
+    /* ─── Included card ─── */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .included-item {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 8px;
+      border-left: 3px solid var(--teal);
+    }
+
+    .section-alt .included-item { background: var(--cream); }
+
+    .included-item p {
+      font-size: 0.9rem;
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+    }
+
+    /* ─── Resources cards ─── */
+    .resource-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--cream-dark);
+      text-align: center;
+    }
+
+    .resource-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(44,110,106,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    .resource-card h3 {
+      font-size: 1.1rem;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .resource-card p {
+      font-size: 0.9rem;
+      color: #666;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ─── Form ─── */
+    .contact-form {
+      max-width: 600px;
+      margin: 2.5rem 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 6px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--teal);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 140px; }
+
+    /* ─── Closing CTA band ─── */
+    .cta-band {
+      padding: 5rem 0;
+      background: var(--teal);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-band p {
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.6);
+      padding: 2.5rem;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+
+    footer strong { color: rgba(255,255,255,0.9); }
+
+    /* ─── Audience segment callout ─── */
+    .segment-callout {
+      border: 1px solid var(--cream-dark);
+      border-radius: 10px;
+      padding: 2.5rem;
+      background: var(--white);
+      border-top: 4px solid var(--teal);
+    }
+
+    .segment-callout.amber { border-top-color: var(--amber); }
+    .segment-callout.clay { border-top-color: var(--clay); }
+
+    .segment-callout h3 {
+      font-size: 1.25rem;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .segment-callout.amber h3 { color: var(--amber); }
+    .segment-callout.clay h3 { color: var(--clay); }
+
+    .segment-callout p { font-size: 0.95rem; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two-col.reverse { direction: ltr; }
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 3.5rem 0; }
+      .hero { padding: 5rem 0 4rem; }
+      .container { padding: 0 1.25rem; }
+    }
+
+    /* ─── Animate on scroll (simple) ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="nav-inner">
+      <a class="nav-logo" onclick="showPage('home')" href="#">
+        Built to Lead
+        <span>Rajiv Harry · Health & Wellness Coach</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a onclick="showPage('home')"       href="#">Home</a></li>
+          <li><a onclick="showPage('about')"      href="#">About</a></li>
+          <li><a onclick="showPage('leader')"     href="#">Leader Coaching</a></li>
+          <li><a onclick="showPage('pastoral')"   href="#">Pastoral Care</a></li>
+          <li><a onclick="showPage('org')"        href="#">Organizational</a></li>
+          <li><a onclick="showPage('resources')"  href="#">Resources</a></li>
+          <li class="cta-nav"><a onclick="showPage('workwithme')" href="#">Work With Me</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a onclick="showPage('home');toggleMobile()"       href="#">Home</a></li>
+      <li><a onclick="showPage('about');toggleMobile()"      href="#">About</a></li>
+      <li><a onclick="showPage('leader');toggleMobile()"     href="#">Leader Coaching</a></li>
+      <li><a onclick="showPage('pastoral');toggleMobile()"   href="#">Pastoral Care</a></li>
+      <li><a onclick="showPage('org');toggleMobile()"        href="#">Organizational Wellness</a></li>
+      <li><a onclick="showPage('resources');toggleMobile()"  href="#">Resources</a></li>
+      <li><a onclick="showPage('workwithme');toggleMobile()" href="#">Work With Me</a></li>
+    </ul>
+  </div>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: HOME -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page active" id="page-home">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Built to Lead · Health &amp; Wellness Coaching</p>
+          <h1>You've been leading others well.<br><em>It's time someone helped you lead yourself.</em></h1>
+          <p class="hero-sub">Built to Lead is a health and wellness coaching program for leaders who are ready to build the foundation that sustains everything they're called to do.</p>
+          <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Reality -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">The Reality</p>
+          <h2 class="section-title">Leading others while running on empty.</h2>
+          <div class="divider"></div>
+          <div style="max-width: 700px;">
+            <p>You show up every day. For your team. For your congregation. For the people counting on you.</p>
+            <p>But somewhere in all of that, your health got pushed to the back. Not because you don't care. Because there was always something more urgent. Someone who needed more.</p>
+            <p>And now you feel it. The low energy. The mental fog. The habits that never seem to stick. The stress that follows you home.</p>
+            <p style="font-family:'Lora',serif; font-style:italic; font-size:1.15rem; color:var(--teal);">You've been leading from whatever is left. And whatever is left isn't enough.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Missing Piece -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">The Missing Piece</p>
+            <h2 class="section-title">Information was never the problem.</h2>
+            <div class="divider"></div>
+            <p>Most leaders have tried to fix this. A new workout routine. A diet. A book. More information.</p>
+            <p>But information was never the problem.</p>
+            <p>What's been missing is a process. Someone to help you unpack what's actually getting in the way and build something simple, structured, and sustainable that fits your real life.</p>
+            <p style="font-family:'DM Sans',sans-serif; font-weight:600; color:var(--teal); font-size:1rem;">That's what Built to Lead is.</p>
+          </div>
+          <div>
+            <div class="pull-quote">
+              <p>"The people who carry the most are often the ones being carried the least."</p>
+              <cite>— Rajiv Harry</cite>
+            </div>
+            <div style="margin-top:2rem; padding:2rem; background:var(--cream-dark); border-radius:8px;">
+              <p class="section-label" style="margin-bottom:0.5rem;">The Program</p>
+              <p style="font-family:'DM Sans',sans-serif; font-size:0.95rem; color:var(--black);">A six-month, one-on-one health and wellness coaching engagement designed specifically for leaders. Not a fitness program — a foundation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">The Methodology</p>
+          <h2 class="section-title">Most programs change what you do.<br>Built to Lead starts with who you're becoming.</h2>
+          <div class="divider"></div>
+          <p style="max-width:680px; margin-bottom:3rem;">Because lasting change doesn't begin with new habits — it begins with a new way of thinking. A shift in belief. A shift in identity. And from that place, we build a life rhythm — weaving movement, nutrition, recovery, and stress management naturally into everything else you're already carrying. Not another thing on your plate. A new way of living.</p>
+        </div>
+        <div class="steps-grid fade-in">
+          <div class="step-card">
+            <p class="step-number">Step 01</p>
+            <h3>Unpack What's Getting in the Way</h3>
+            <p>The patterns, the habits, the resistance that keeps you inconsistent. Before we build anything, we identify what's actually creating inconsistency.</p>
+          </div>
+          <div class="step-card">
+            <p class="step-number">Step 02</p>
+            <h3>Anchor Your Health to Your Why</h3>
+            <p>Your purpose, your people, your calling. When health is anchored to something bigger than motivation, it holds even when motivation fades.</p>
+          </div>
+          <div class="step-card">
+            <p class="step-number">Step 03</p>
+            <h3>Build a Life Rhythm</h3>
+            <p>Movement, nutrition, recovery, and stress management woven naturally into your real life. Not intensity. Execution. Small actions repeated consistently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Changes -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">What Changes</p>
+            <h2 class="section-title">A shift not just in your habits, but in who you are as a leader.</h2>
+            <div class="divider"></div>
+            <ul class="checklist">
+              <li>More consistent and reliable energy throughout your day</li>
+              <li>Greater mental clarity and sharper decision making</li>
+              <li>The ability to manage stress without carrying it into every room</li>
+              <li>A life rhythm that holds even under pressure</li>
+              <li>A shift, not just in your habits, but in who you are as a leader</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">Who This Is For</p>
+            <h2 class="section-title">Built for leaders carrying real responsibility.</h2>
+            <div class="divider"></div>
+            <div style="display:flex; flex-direction:column; gap:1.25rem;">
+              <div class="segment-callout">
+                <h3>Leaders &amp; Executives</h3>
+                <p>Executives, managers, team leaders, and high-responsibility individuals who are ready to stop leading on empty and build something that actually supports them.</p>
+                <a href="#" onclick="showPage('leader')" class="cta-btn cta-outline" style="margin-top:1rem; font-size:0.82rem; padding:0.6rem 1.2rem;">Explore Leader Coaching →</a>
+              </div>
+              <div class="segment-callout amber">
+                <h3>Pastoral &amp; Faith-Driven Leaders</h3>
+                <p>You lead, serve, and pour into others consistently. The weight of that calling is real. Built to Lead: Called and Equipped was built for this.</p>
+                <a href="#" onclick="showPage('pastoral')" class="cta-btn cta-outline" style="margin-top:1rem; font-size:0.82rem; padding:0.6rem 1.2rem; border-color:var(--amber); color:var(--amber);">Explore Pastoral Care →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Not a Leader? -->
+    <section class="section section-clay">
+      <div class="container" style="text-align:center; max-width:680px;">
+        <div class="fade-in">
+          <p class="section-label">Not a Leader?</p>
+          <h2 class="section-title">You don't have to have a title to need this.</h2>
+          <div class="divider" style="margin:1.5rem auto;"></div>
+          <p>If you're someone who gives a lot of yourself — to your family, your community, the people around you — and your health has been the last thing on your list, you're in the right place.</p>
+          <p>Explore our wellness resources designed for everyday people who are ready to start.</p>
+          <a href="#" onclick="showPage('resources')" class="cta-btn cta-primary" style="margin-top:1rem;">Explore Resources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Rajiv snippet -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div class="about-card">
+            <p class="section-label">About Rajiv</p>
+            <h3>Rajiv Harry</h3>
+            <p class="subtitle">Certified Health &amp; Wellness Transformation Coach</p>
+            <p>There has always been a lack of care for those who care for others. I see that gap and I've built my life's work around closing it.</p>
+            <p>I'm Rajiv Harry — a certified health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
+            <a href="#" onclick="showPage('about')" class="cta-btn cta-white" style="margin-top:1.5rem; font-size:0.85rem;">Read My Full Story →</a>
+          </div>
+          <div>
+            <p class="section-label">One-Liner</p>
+            <div class="pull-quote" style="margin:0 0 2rem;">
+              <p>"Rajiv Harry helps leaders break through what's been holding them back and build the health and capacity to sustain everything they've been called to do."</p>
+            </div>
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--clay);">Rajiv Harry is a certified health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <div class="cta-band">
+      <div class="container">
+        <h2>The support that's been missing starts here.</h2>
+        <p>A 30-minute conversation. No pressure. No obligation. Just an honest conversation about where you are and whether Built to Lead is the right fit.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: ABOUT -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-about">
+    <section class="hero" style="padding:5rem 0 4rem;">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">About</p>
+          <h1>There has always been a lack of care for those who care for others.</h1>
+          <p class="hero-sub">I see that gap and I've built my life's work around closing it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container" style="max-width:780px;">
+        <div class="fade-in">
+          <p class="section-label">The Story</p>
+          <h2 class="section-title">A journey that started with one workout and a decision to keep showing up.</h2>
+          <div class="divider"></div>
+          <p>Rajiv's journey into health and wellness didn't start in a gym or a classroom. It started with an invite from a friend and a decision to show up, even when it was hard. After more than a decade in the culinary industry, rising to Sous Chef at one of the Pacific Northwest's premier catering companies, that one workout changed everything.</p>
+          <p>He kept showing up. Day after day, something began to shift, not just in his body, but in how he showed up in every area of his life. His relationships. His community. His sense of purpose.</p>
+        </div>
+        <div class="pull-quote fade-in">
+          <p>"That transformation lit a fire that has never gone out."</p>
+        </div>
+        <div class="fade-in">
+          <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. As a certified health and wellness transformation coach, Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
+          <p>That journey led him here, to leaders. Because the people who carry the most are often the ones being carried the least.</p>
+          <p>Built to Lead is the result of everything Rajiv has learned — a coaching process designed to help leaders break through what's been holding them back, build a life rhythm that is naturally woven into everything they carry, and expand their capacity to sustain everything they've been called to do.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>If any of this resonates, let's talk.</h2>
+        <p>A 30-minute discovery call. No pressure. Honest guidance on whether Built to Lead is right for you.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: LEADER COACHING -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-leader">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Leader Coaching</p>
+          <h1>You were built to lead.<br><em>Are your current systems built to sustain it?</em></h1>
+          <p class="hero-sub">A six-month, one-on-one health and wellness coaching program designed specifically for leaders who are serious about the long game.</p>
+          <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">The Reality</p>
+            <h2 class="section-title">You're not lacking drive. You're lacking a foundation.</h2>
+            <div class="divider"></div>
+            <p>Leadership is demanding. The pressure to perform, to show up, to deliver — it doesn't stop. And most leaders carry that weight without ever building the foundation that allows them to carry it well.</p>
+            <p>Over time it shows up as low energy, inconsistent habits, mental fatigue, and stress that bleeds into every area of life.</p>
+          </div>
+          <div>
+            <div style="background:var(--teal); color:var(--white); padding:2.5rem; border-radius:10px;">
+              <p class="section-label" style="color:var(--amber);">This Is Not a Fitness Program</p>
+              <h3 style="color:var(--white); font-size:1.3rem; margin-bottom:1rem;">Built to Lead is about capacity. Not performance.</h3>
+              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem;">This is not about getting in shape. It's about building the health and life rhythm that gives you the capacity to lead at the level you're called to — consistently, sustainably, and without burning out.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">The Methodology</p>
+          <h2 class="section-title">Starting with who you're becoming.</h2>
+          <div class="divider"></div>
+          <p style="max-width:660px; margin-bottom:3rem;">Most programs try to change what you do. Built to Lead starts with who you're becoming. Because lasting change doesn't begin with new habits — it begins with a new way of thinking. A shift in belief. A shift in identity. And from that place, we build a life rhythm.</p>
+        </div>
+        <div class="steps-grid fade-in">
+          <div class="step-card">
+            <p class="step-number">Step 01</p>
+            <h3>Unpack What's Getting in the Way</h3>
+            <p>Before we build anything we identify what's actually creating inconsistency. The patterns, the habits, the resistance. Most leaders already know what they should be doing — we figure out why they're not doing it.</p>
+          </div>
+          <div class="step-card">
+            <p class="step-number">Step 02</p>
+            <h3>Anchor Your Health to Your Why</h3>
+            <p>We connect your health to what matters most to you as a leader — your purpose, your people, your impact. When health is anchored to something bigger than motivation, it holds.</p>
+          </div>
+          <div class="step-card">
+            <p class="step-number">Step 03</p>
+            <h3>Build Your Life Rhythm</h3>
+            <p>Structured practices around four pillars — movement, nutrition, recovery, and stress management — woven naturally into your real life. Not intensity. Execution. Small actions repeated consistently that create real change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">What Changes</p>
+            <h2 class="section-title">A deeper shift begins to take hold.</h2>
+            <div class="divider"></div>
+            <ul class="checklist">
+              <li>More consistent and reliable energy throughout your day</li>
+              <li>Greater clarity in your decisions</li>
+              <li>Stress that no longer follows you into every room</li>
+              <li>A life rhythm that holds even under pressure</li>
+              <li>A shift in how you show up as a leader for the people around you</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">What's Included</p>
+            <h2 class="section-title">Six months. One-on-one. Personalized.</h2>
+            <div class="divider"></div>
+            <div class="included-grid" style="margin-top:1.5rem;">
+              <div class="included-item"><p>Six-month engagement</p></div>
+              <div class="included-item"><p>Biweekly one-on-one coaching sessions</p></div>
+              <div class="included-item"><p>Prescribed practices tailored to your lifestyle</p></div>
+              <div class="included-item"><p>Accountability and support between sessions</p></div>
+              <div class="included-item" style="grid-column:span 2;"><p>A process built around your real life, not a generic plan</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-clay">
+      <div class="container" style="max-width:780px; text-align:center;">
+        <div class="fade-in">
+          <p class="section-label">The Shift</p>
+          <h2 class="section-title">As the process takes hold, something deeper happens.</h2>
+          <div class="divider" style="margin:1.5rem auto;"></div>
+          <p>Your identity begins to shift. You stop trying to keep up and start leading from a place of strength. Your capacity expands. And the people you lead — your team, your family, the people counting on you — feel the difference.</p>
+          <div class="pull-quote" style="text-align:left; margin:2rem 0;">
+            <p>"The best leaders aren't just skilled. They're whole."</p>
+          </div>
+          <p style="font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--clay); margin-bottom:2rem;">Built to Lead is for leaders who are serious about the long game. Executives, managers, team leaders, and high-responsibility individuals who are ready to stop leading on empty and build something that actually supports them.</p>
+          <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-primary">Let's Build That</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>If you're ready to invest in the foundation everything else is built on, this is for you.</h2>
+        <p>Let's talk about where you are and whether this is the right fit.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: PASTORAL CARE -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-pastoral">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Pastoral Care · Built to Lead: Called and Equipped</p>
+          <h1>You were called to lead.<br><em>Is your health built to sustain that calling?</em></h1>
+          <p class="hero-sub">Many pastoral leaders have never been given the space to prioritize their own health as an act of faithfulness to their calling. That changes here.</p>
+          <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">The Reality</p>
+            <h2 class="section-title">You show up faithfully. For everyone.</h2>
+            <div class="divider"></div>
+            <p>You show up faithfully. For your congregation. For your family. For everyone God has placed in your life.</p>
+            <p>But are you showing up for your health?</p>
+            <p>Many pastoral leaders have never been given the space to prioritize their own health as an act of faithfulness to their calling.</p>
+            <p style="font-family:'Lora',serif; font-style:italic; color:var(--teal); font-size:1.1rem;">That changes here.</p>
+          </div>
+          <div>
+            <div style="background:rgba(44,110,106,0.07); border-left:4px solid var(--teal); padding:2.5rem; border-radius:0 10px 10px 0;">
+              <p class="section-label">Not Just Who You Shepherd</p>
+              <p>The people in your care need a leader who is whole. Not just capable. Not just available. <strong>Whole.</strong></p>
+              <p>Your congregation needs it. Your family needs it. The people God has placed in your life need it.</p>
+              <p>But so do you. Not just as a pastor. As a person.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">Built to Lead: Called and Equipped</p>
+          <h2 class="section-title">A process built for those who carry an eternal calling.</h2>
+          <div class="divider"></div>
+          <p style="max-width:700px; margin-bottom:2rem;">This is not a fitness program. This is a process built for leaders who carry an eternal calling and need the health and foundation to sustain it.</p>
+          <p style="max-width:700px; margin-bottom:3rem;">We start by unpacking what's getting in the way. The patterns, the demands, the places where you've been running on empty without even realizing it. Then we build a life rhythm — weaving movement, nutrition, recovery, and stress management naturally into everything you're already carrying.</p>
+        </div>
+        <div class="pull-quote" style="background:rgba(255,255,255,0.1); border-left-color:var(--amber); margin-bottom:3rem;" class="fade-in">
+          <p style="color:var(--white);">"Lasting change doesn't begin with new habits. It begins with a shift in thinking. A shift in belief. A shift in identity. And from that place, you shepherd from fullness — not from whatever is left."</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">What Changes</p>
+            <h2 class="section-title">A shepherd who shows up whole.</h2>
+            <div class="divider"></div>
+            <ul class="checklist">
+              <li>More consistent energy for the people who need you most</li>
+              <li>Greater clarity in the decisions that matter</li>
+              <li>The ability to carry the weight of ministry without it breaking you</li>
+              <li>A life rhythm that holds even in the hardest seasons</li>
+              <li>A shepherd who shows up whole — for their congregation, their family, and themselves</li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">Who This Is For</p>
+            <h2 class="section-title">For those who pour out consistently.</h2>
+            <div class="divider"></div>
+            <p>Built to Lead: Called and Equipped is for pastoral leaders, ministry directors, and faith-driven leaders who are ready to close the gap between how well they care for others and how well they care for themselves.</p>
+            <p>You lead, serve, and pour into others consistently. The weight of that calling is real. But how is your health right now supporting the way you've been called to lead?</p>
+            <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-primary" style="margin-top:1rem;">Let's Talk →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>The calling on your life is worth protecting.</h2>
+        <p>Let's build the foundation that sustains it.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: ORGANIZATIONAL WELLNESS -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-org">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Organizational Wellness</p>
+          <h1>Your organization moves at the speed of its leaders.<br><em>Are yours built to sustain it?</em></h1>
+          <p class="hero-sub">The energy, clarity, and vitality of your leadership team is not separate from your mission. It is the foundation of it.</p>
+          <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Let's Talk About Your Organization</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">The Reality</p>
+            <h2 class="section-title">A team running on empty affects everything.</h2>
+            <div class="divider"></div>
+            <p>A team of leaders running on empty doesn't just affect their personal health. It affects every decision they make, every person they lead, and the culture of the entire organization.</p>
+            <p>The energy, clarity, and vitality of your leadership team is not separate from your mission. It is the foundation of it.</p>
+          </div>
+          <div>
+            <div style="background:var(--teal); color:var(--white); padding:2.5rem; border-radius:10px;">
+              <p class="section-label" style="color:var(--amber);">What Built to Lead Brings</p>
+              <h3 style="color:var(--white); font-size:1.2rem; margin-bottom:1rem;">Health and capacity at the leadership level.</h3>
+              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem;">Built to Lead works with organizations to do what no standard wellness program can — build health and capacity at the leadership level and watch it shift the culture from the inside out.</p>
+              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem; margin-top:1rem;">Each leader selected for the program receives the same 1:1 attention and personalized process as our individual clients. The same investment. The same transformation. Multiplied across your team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">The Process</p>
+          <h2 class="section-title">Individual transformation that shifts culture.</h2>
+          <div class="divider"></div>
+          <p style="max-width:680px; margin-bottom:2rem;">Each leader goes through the Built to Lead process — unpacking what's getting in the way, anchoring their health to their purpose, and building a life rhythm that allows them to show up fully for the people they serve.</p>
+          <p style="max-width:680px; margin-bottom:3rem; font-style:italic; font-family:'Lora',serif; font-size:1.15rem;">As each leader shifts, something larger shifts too. The culture of your organization begins to reflect the health of the people leading it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">What's Included</p>
+          <h2 class="section-title">Personalized. Scalable. Transformational.</h2>
+          <div class="divider"></div>
+          <div class="included-grid">
+            <div class="included-item"><p>Six-month baseline engagement</p></div>
+            <div class="included-item"><p>Individual 1:1 coaching for each selected leader</p></div>
+            <div class="included-item"><p>Group sessions available as a complement to individual work</p></div>
+            <div class="included-item"><p>Delivered onsite, virtually, or a combination depending on your location</p></div>
+            <div class="included-item" style="grid-column:span 2 / span 2;"><p>A process tailored to your organization, not a generic wellness program</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-clay">
+      <div class="container" style="max-width:780px; text-align:center;">
+        <div class="fade-in">
+          <p class="section-label">Who This Is For</p>
+          <h2 class="section-title">Mission-driven organizations ready to invest in their leaders.</h2>
+          <div class="divider" style="margin:1.5rem auto;"></div>
+          <p>Churches, nonprofits, companies, and mission-driven organizations who are ready to invest in the health of their leaders and shift the culture of their team.</p>
+          <div class="pull-quote" style="text-align:left; margin:2rem 0;">
+            <p>"Every healthy organization starts with healthy leaders."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>Every healthy organization starts with healthy leaders.</h2>
+        <p>Let's build that together.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Let's Talk About Your Organization</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: RESOURCES -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-resources">
+    <section class="hero" style="padding:5rem 0 4rem;">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Resources</p>
+          <h1>You don't have to have a title to need this.</h1>
+          <p class="hero-sub">Whether you're a parent, a caregiver, a community member — if your health has been the last thing on your list, this is where you start.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="fade-in">
+          <p class="section-label">What's Here</p>
+          <h2 class="section-title">Tools designed to meet you where you are.</h2>
+          <div class="divider"></div>
+          <p style="max-width:600px; margin-bottom:3rem;">Wellness tools designed for everyday people who are ready to start. No program required — just practical guidance to begin building health into your life.</p>
+        </div>
+        <div class="resource-cards fade-in">
+          <div class="resource-card">
+            <div class="resource-icon">🥗</div>
+            <h3>Nutrition Guidance</h3>
+            <p>Food recommendations and nutrition principles to fuel your body and support lasting energy.</p>
+          </div>
+          <div class="resource-card">
+            <div class="resource-icon">🏃</div>
+            <h3>Movement &amp; Mobility</h3>
+            <p>Movement prescriptions designed for real life — not the gym version, the version that actually fits your schedule.</p>
+          </div>
+          <div class="resource-card">
+            <div class="resource-icon">🧠</div>
+            <h3>Wellness Tools</h3>
+            <p>Practical tools and frameworks for building sustainable rhythms around recovery, stress, and mental health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>Ready to take the next step?</h2>
+        <p>If you're ready for something more personalized, Built to Lead coaching is available to anyone who pours into others and needs to start pouring into themselves.</p>
+        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Work With Me</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- PAGE: WORK WITH ME -->
+  <!-- ════════════════════════════════════════════════ -->
+  <div class="page" id="page-workwithme">
+    <section class="hero" style="padding:5rem 0 4rem;">
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Work With Me</p>
+          <h1>If you've made it here, something resonated.</h1>
+          <p class="hero-sub">The next step is a discovery call. It's a conversation, not a sales pitch. We'll talk about where you are, what's been getting in the way, and whether Built to Lead is the right fit for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">Book Your Discovery Call</p>
+            <h2 class="section-title">A 30-minute conversation, no pressure, no obligation.</h2>
+            <div class="divider"></div>
+
+            <div style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem;">
+              <div class="included-item">
+                <p style="font-weight:600; margin-bottom:0.25rem;">No pressure, no obligation</p>
+              </div>
+              <div class="included-item">
+                <p style="font-weight:600; margin-bottom:0.25rem;">Space to talk about what you're carrying and what you're looking for</p>
+              </div>
+              <div class="included-item">
+                <p style="font-weight:600; margin-bottom:0.25rem;">Honest guidance on whether this program is right for you</p>
+              </div>
+            </div>
+
+            <a href="#" class="cta-btn cta-primary" style="font-size:1rem; padding:1rem 2.5rem;">Book Your Discovery Call</a>
+
+            <p style="margin-top:2.5rem; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--clay);">Prefer to reach out first?</p>
+          </div>
+
+          <div>
+            <p class="section-label">Send a Message</p>
+            <h2 class="section-title">Start the conversation.</h2>
+            <div class="divider"></div>
+            <form class="contact-form" onsubmit="handleForm(event)">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="role">Your Role</label>
+                <select id="role" name="role">
+                  <option value="">Select one…</option>
+                  <option>Executive / Business Leader</option>
+                  <option>Pastoral / Faith Leader</option>
+                  <option>Manager / Team Leader</option>
+                  <option>Caregiver / Community Member</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">What's on your mind?</label>
+                <textarea id="message" name="message" placeholder="Tell me a little about where you are and what you're looking for…"></textarea>
+              </div>
+              <button type="submit" class="cta-btn cta-primary" style="width:100%; font-size:1rem;">Send Message</button>
+              <div id="form-success" style="display:none; margin-top:1rem; padding:1rem; background:rgba(44,110,106,0.1); border-radius:6px; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.9rem; text-align:center;">
+                Message sent! Rajiv will be in touch soon.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>Built to Lead. Built to last.</h2>
+        <p>The support that's been missing starts here.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <strong>Built to Lead</strong> &nbsp;·&nbsp; Rajiv Harry &nbsp;·&nbsp; Health &amp; Wellness Transformation Coach<br>
+    <span style="font-size:0.75rem; margin-top:0.5rem; display:inline-block;">© 2026 Built to Lead. All rights reserved.</span>
+  </footer>
+
+
+  <script>
+    /* ─── Page Navigation ─── */
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + id);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        observeFadeIns();
+        updateActiveNav(id);
+      }
+    }
+
+    function updateActiveNav(id) {
+      document.querySelectorAll('nav ul li a').forEach(a => a.classList.remove('active'));
+      const map = { home:'Home', about:'About', leader:'Leader Coaching', pastoral:'Pastoral Care', org:'Organizational', resources:'Resources', workwithme:'Work With Me' };
+      document.querySelectorAll('nav ul li a').forEach(a => {
+        if (a.textContent.trim() === (map[id] || '')) a.classList.add('active');
+      });
+    }
+
+    /* ─── Mobile Menu ─── */
+    function toggleMobile() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    /* ─── Fade-in Observer ─── */
+    function observeFadeIns() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('#page-' + currentPage() + ' .fade-in').forEach(el => observer.observe(el));
+    }
+
+    function currentPage() {
+      const active = document.querySelector('.page.active');
+      return active ? active.id.replace('page-', '') : 'home';
+    }
+
+    /* ─── Form ─── */
+    function handleForm(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+    }
+
+    /* ─── Init ─── */
+    document.addEventListener('DOMContentLoaded', () => {
+      observeFadeIns();
+      updateActiveNav('home');
+    });
+  </script>
+
+</body>
+</html>
