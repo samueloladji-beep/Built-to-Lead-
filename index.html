@@ -437,6 +437,37 @@
     .two-col.reverse { direction: rtl; }
     .two-col.reverse > * { direction: ltr; }
 
+    /* ─── Headshot ─── */
+    .headshot-wrap {
+      position: relative;
+    }
+
+    .headshot-img {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 20px 60px rgba(44,110,106,0.18);
+    }
+
+    .headshot-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--amber);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(196,148,74,0.35);
+      line-height: 1.4;
+    }
+
     /* ─── About card ─── */
     .about-card {
       background: var(--teal);
@@ -826,13 +857,16 @@
     <section class="section section-alt">
       <div class="container">
         <div class="two-col fade-in">
-          <div class="about-card">
-            <p class="section-label">About Rajiv</p>
-            <h3>Rajiv Harry</h3>
-            <p class="subtitle">Certified Health &amp; Wellness Transformation Coach</p>
-            <p>There has always been a lack of care for those who care for others. I see that gap and I've built my life's work around closing it.</p>
-            <p>I'm Rajiv Harry — a certified health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
-            <a href="#" onclick="showPage('about')" class="cta-btn cta-white" style="margin-top:1.5rem; font-size:0.85rem;">Read My Full Story →</a>
+          <div class="about-card" style="display:flex; gap:2rem; align-items:flex-start;">
+            <img src="rajiv-headshot.png" alt="Rajiv Harry" style="width:130px; height:130px; border-radius:50%; object-fit:cover; object-position:center top; flex-shrink:0; border:3px solid rgba(255,255,255,0.3);" />
+            <div>
+              <p class="section-label">About Rajiv</p>
+              <h3>Rajiv Harry</h3>
+              <p class="subtitle">Certified Health &amp; Wellness Transformation Coach</p>
+              <p>There has always been a lack of care for those who care for others. I see that gap and I've built my life's work around closing it.</p>
+              <p>I'm Rajiv Harry — a certified health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
+              <a href="#" onclick="showPage('about')" class="cta-btn cta-white" style="margin-top:1.5rem; font-size:0.85rem;">Read My Full Story →</a>
+            </div>
           </div>
           <div>
             <p class="section-label">One-Liner</p>
@@ -871,21 +905,25 @@
     </section>
 
     <section class="section section-alt">
-      <div class="container" style="max-width:780px;">
-        <div class="fade-in">
-          <p class="section-label">The Story</p>
-          <h2 class="section-title">A journey that started with one workout and a decision to keep showing up.</h2>
-          <div class="divider"></div>
-          <p>Rajiv's journey into health and wellness didn't start in a gym or a classroom. It started with an invite from a friend and a decision to show up, even when it was hard. After more than a decade in the culinary industry, rising to Sous Chef at one of the Pacific Northwest's premier catering companies, that one workout changed everything.</p>
-          <p>He kept showing up. Day after day, something began to shift, not just in his body, but in how he showed up in every area of his life. His relationships. His community. His sense of purpose.</p>
-        </div>
-        <div class="pull-quote fade-in">
-          <p>"That transformation lit a fire that has never gone out."</p>
-        </div>
-        <div class="fade-in">
-          <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. As a certified health and wellness transformation coach, Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
-          <p>That journey led him here, to leaders. Because the people who carry the most are often the ones being carried the least.</p>
-          <p>Built to Lead is the result of everything Rajiv has learned — a coaching process designed to help leaders break through what's been holding them back, build a life rhythm that is naturally woven into everything they carry, and expand their capacity to sustain everything they've been called to do.</p>
+      <div class="container">
+        <div class="two-col fade-in" style="align-items:flex-start; gap:4rem;">
+          <div class="headshot-wrap">
+            <img src="rajiv-headshot.png" alt="Rajiv Harry — Health &amp; Wellness Transformation Coach" class="headshot-img" />
+            <div class="headshot-badge">Certified Health &amp;<br>Wellness Coach</div>
+          </div>
+          <div>
+            <p class="section-label">The Story</p>
+            <h2 class="section-title">A journey that started with one workout and a decision to keep showing up.</h2>
+            <div class="divider"></div>
+            <p>Rajiv's journey into health and wellness didn't start in a gym or a classroom. It started with an invite from a friend and a decision to show up, even when it was hard. After more than a decade in the culinary industry, rising to Sous Chef at one of the Pacific Northwest's premier catering companies, that one workout changed everything.</p>
+            <p>He kept showing up. Day after day, something began to shift, not just in his body, but in how he showed up in every area of his life. His relationships. His community. His sense of purpose.</p>
+            <div class="pull-quote">
+              <p>"That transformation lit a fire that has never gone out."</p>
+            </div>
+            <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. As a certified health and wellness transformation coach, Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
+            <p>That journey led him here, to leaders. Because the people who carry the most are often the ones being carried the least.</p>
+            <p>Built to Lead is the result of everything Rajiv has learned — a coaching process designed to help leaders break through what's been holding them back, build a life rhythm that is naturally woven into everything they carry, and expand their capacity to sustain everything they've been called to do.</p>
+          </div>
         </div>
       </div>
     </section>
