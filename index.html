@@ -546,6 +546,57 @@
       font-family: 'DM Sans', sans-serif;
     }
 
+    /* ─── Wellness Journey Radio Cards ─── */
+    .journey-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--white);
+    }
+
+    .journey-option:hover {
+      border-color: var(--teal);
+      background: rgba(44,110,106,0.04);
+    }
+
+    .journey-option input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--teal);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .journey-option:has(input:checked) {
+      border-color: var(--teal);
+      background: rgba(44,110,106,0.06);
+    }
+
+    .journey-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .journey-label strong {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .journey-label span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--clay);
+      line-height: 1.5;
+    }
+
     /* ─── Form ─── */
     .contact-form {
       max-width: 600px;
@@ -690,7 +741,6 @@
           <li><a onclick="showPage('leader')"     href="#">Leader Coaching</a></li>
           <li><a onclick="showPage('pastoral')"   href="#">Pastoral Care</a></li>
           <li><a onclick="showPage('org')"        href="#">Organizational</a></li>
-          <li><a onclick="showPage('resources')"  href="#">Resources</a></li>
           <li class="cta-nav"><a onclick="showPage('workwithme')" href="#">Work With Me</a></li>
         </ul>
       </nav>
@@ -707,7 +757,6 @@
       <li><a onclick="showPage('leader');toggleMobile()"     href="#">Leader Coaching</a></li>
       <li><a onclick="showPage('pastoral');toggleMobile()"   href="#">Pastoral Care</a></li>
       <li><a onclick="showPage('org');toggleMobile()"        href="#">Organizational Wellness</a></li>
-      <li><a onclick="showPage('resources');toggleMobile()"  href="#">Resources</a></li>
       <li><a onclick="showPage('workwithme');toggleMobile()" href="#">Work With Me</a></li>
     </ul>
   </div>
@@ -835,20 +884,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Not a Leader? -->
-    <section class="section section-clay">
-      <div class="container" style="text-align:center; max-width:680px;">
-        <div class="fade-in">
-          <p class="section-label">Not a Leader?</p>
-          <h2 class="section-title">You don't have to have a title to need this.</h2>
-          <div class="divider" style="margin:1.5rem auto;"></div>
-          <p>If you're someone who gives a lot of yourself, to your family, your community, the people around you, and your health has been the last thing on your list, you're in the right place.</p>
-          <p>Explore our wellness resources designed for everyday people who are ready to start.</p>
-          <a href="#" onclick="showPage('resources')" class="cta-btn cta-primary" style="margin-top:1rem;">Explore Resources</a>
         </div>
       </div>
     </section>
@@ -1241,57 +1276,6 @@
 
 
   <!-- ════════════════════════════════════════════════ -->
-  <!-- PAGE: RESOURCES -->
-  <!-- ════════════════════════════════════════════════ -->
-  <div class="page" id="page-resources">
-    <section class="hero" style="padding:5rem 0 4rem;">
-      <div class="container">
-        <div class="hero-inner">
-          <p class="hero-eyebrow">Resources</p>
-          <h1>You don't have to have a title to need this.</h1>
-          <p class="hero-sub">Whether you're a parent, a caregiver, a community member, if your health has been the last thing on your list, this is where you start.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container">
-        <div class="fade-in">
-          <p class="section-label">What's Here</p>
-          <h2 class="section-title">Tools designed to meet you where you are.</h2>
-          <div class="divider"></div>
-          <p style="max-width:600px; margin-bottom:3rem;">Wellness tools designed for everyday people who are ready to start. No program required, just practical guidance to begin building health into your life.</p>
-        </div>
-        <div class="resource-cards fade-in">
-          <div class="resource-card">
-            <div class="resource-icon">🥗</div>
-            <h3>Nutrition Guidance</h3>
-            <p>Food recommendations and nutrition principles to fuel your body and support lasting energy.</p>
-          </div>
-          <div class="resource-card">
-            <div class="resource-icon">🏃</div>
-            <h3>Movement &amp; Mobility</h3>
-            <p>Movement prescriptions designed for real life, not the gym version, the version that actually fits your schedule.</p>
-          </div>
-          <div class="resource-card">
-            <div class="resource-icon">🧠</div>
-            <h3>Wellness Tools</h3>
-            <p>Practical tools and frameworks for building sustainable rhythms around recovery, stress, and mental health.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="cta-band">
-      <div class="container">
-        <h2>Ready to take the next step?</h2>
-        <p>If you're ready for something more personalized, Built to Lead coaching is available to anyone who pours into others and needs to start pouring into themselves.</p>
-        <a href="#" onclick="showPage('workwithme')" class="cta-btn cta-amber">Work With Me</a>
-      </div>
-    </div>
-  </div>
-
-
   <!-- ════════════════════════════════════════════════ -->
   <!-- PAGE: WORK WITH ME -->
   <!-- ════════════════════════════════════════════════ -->
@@ -1356,8 +1340,41 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="message">What's on your mind?</label>
-                <textarea id="message" name="message" placeholder="Tell me a little about where you are and what you're looking for…"></textarea>
+                <label>Where are you in your wellness journey right now?</label>
+                <div style="display:flex; flex-direction:column; gap:0.65rem; margin-top:0.25rem;">
+                  <label class="journey-option">
+                    <input type="radio" name="journey" value="just-starting" />
+                    <span class="journey-label">
+                      <strong>Just getting started</strong>
+                      <span>I haven't had consistent health habits in a while and I'm ready to change that.</span>
+                    </span>
+                  </label>
+                  <label class="journey-option">
+                    <input type="radio" name="journey" value="tried-before" />
+                    <span class="journey-label">
+                      <strong>I've tried before but it doesn't stick</strong>
+                      <span>I know what I should be doing, but something keeps getting in the way.</span>
+                    </span>
+                  </label>
+                  <label class="journey-option">
+                    <input type="radio" name="journey" value="some-habits" />
+                    <span class="journey-label">
+                      <strong>I have some habits but need structure</strong>
+                      <span>I'm doing a few things right but I need accountability and a real plan.</span>
+                    </span>
+                  </label>
+                  <label class="journey-option">
+                    <input type="radio" name="journey" value="burnt-out" />
+                    <span class="journey-label">
+                      <strong>I'm consistent but running on empty</strong>
+                      <span>I show up for everyone else but my own health has been the last priority.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Anything else you'd like me to know?</label>
+                <textarea id="message" name="message" placeholder="Share anything that feels relevant — what you're carrying, what you're hoping for, or what's been getting in the way."></textarea>
               </div>
               <button type="submit" class="cta-btn cta-primary" style="width:100%; font-size:1rem;">Send Message</button>
               <div id="form-success" style="display:none; margin-top:1rem; padding:1rem; background:rgba(44,110,106,0.1); border-radius:6px; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.9rem; text-align:center;">
@@ -1400,7 +1417,7 @@
 
     function updateActiveNav(id) {
       document.querySelectorAll('nav ul li a').forEach(a => a.classList.remove('active'));
-      const map = { home:'Home', about:'About', leader:'Leader Coaching', pastoral:'Pastoral Care', org:'Organizational', resources:'Resources', workwithme:'Work With Me' };
+      const map = { home:'Home', about:'About', leader:'Leader Coaching', pastoral:'Pastoral Care', org:'Organizational', workwithme:'Work With Me' };
       document.querySelectorAll('nav ul li a').forEach(a => {
         if (a.textContent.trim() === (map[id] || '')) a.classList.add('active');
       });
