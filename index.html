@@ -1378,7 +1378,10 @@
             <p class="section-label">Send a Message</p>
             <h2 class="section-title">Start the conversation.</h2>
             <div class="divider"></div>
-            <form class="contact-form" onsubmit="handleForm(event)">
+            <form class="contact-form" onsubmit="handleForm(event)" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="eef4f54f-c1f8-44cd-9d4d-7b27837f0785" />
+              <input type="hidden" name="subject" value="New Inquiry - Built to Lead" />
+              <input type="hidden" name="from_name" value="Built to Lead Website" />
               <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -1437,7 +1440,10 @@
               </div>
               <button type="submit" class="cta-btn cta-primary" style="width:100%; font-size:1rem;">Send Message</button>
               <div id="form-success" style="display:none; margin-top:1rem; padding:1rem; background:rgba(44,110,106,0.1); border-radius:6px; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.9rem; text-align:center;">
-                Message sent! Rajiv will be in touch soon.
+                ✓ Message sent! Rajiv will be in touch soon.
+              </div>
+              <div id="form-error" style="display:none; margin-top:1rem; padding:1rem; background:rgba(180,50,50,0.08); border-radius:6px; color:#b43232; font-family:'DM Sans',sans-serif; font-size:0.9rem; text-align:center;">
+                Something went wrong. Please try again or email directly.
               </div>
             </form>
           </div>
@@ -1754,10 +1760,37 @@
     }
 
     /* ─── Form ─── */
-    function handleForm(e) {
+    async function handleForm(e) {
       e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      e.target.reset();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const successEl = document.getElementById('form-success');
+      const errorEl = document.getElementById('form-error');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data
+        });
+        const json = await res.json();
+        if (json.success) {
+          successEl.style.display = 'block';
+          form.reset();
+        } else {
+          errorEl.style.display = 'block';
+        }
+      } catch (err) {
+        errorEl.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
     }
 
     /* ─── Init ─── */
