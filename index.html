@@ -1773,20 +1773,32 @@
       errorEl.style.display = 'none';
 
       try {
-        const data = new FormData(form);
+        // Convert form fields to a plain JSON object (Web3Forms recommended approach)
+        const formData = new FormData(form);
+        const payload = {};
+        formData.forEach((value, key) => { payload[key] = value; });
+
         const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: data
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
-        const json = await res.json();
-        if (json.success) {
+
+        const result = await res.json();
+
+        if (result.success) {
           successEl.style.display = 'block';
           form.reset();
         } else {
           errorEl.style.display = 'block';
+          console.error('Web3Forms error:', result);
         }
       } catch (err) {
         errorEl.style.display = 'block';
+        console.error('Form submission error:', err);
       } finally {
         btn.disabled = false;
         btn.textContent = 'Send Message';
