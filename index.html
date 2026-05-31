@@ -1383,9 +1383,8 @@
             <p class="section-label">Send a Message</p>
             <h2 class="section-title">Start the conversation.</h2>
             <div class="divider"></div>
-            <form class="contact-form" action="https://formspree.io/f/mwvzdpjj" method="POST">
+            <form class="contact-form" id="contact-form" onsubmit="handleForm(event)">
               <input type="hidden" name="_subject" value="New Inquiry - Built to Lead" />
-              <input type="hidden" name="_next" value="https://rajivharry.com/?sent=true" />
               <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -1757,16 +1756,60 @@
       return active ? active.id.replace('page-', '') : 'home';
     }
 
-    /* ─── Thank you banner after form redirect ─── */
+    /* ─── Contact form — AJAX submit to Formspree ─── */
+    async function handleForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn  = form.querySelector('button[type="submit"]');
+      const origText = btn.textContent;
+
+      // Basic validation: ensure a journey option is selected
+      const journey = form.querySelector('input[name="journey"]:checked');
+      if (!journey) {
+        const journeyGroup = form.querySelector('.journey-group-label') || form.querySelector('[name="journey"]');
+        alert('Please let Rajiv know where you are in your wellness journey before sending.');
+        return;
+      }
+
+      btn.disabled    = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res    = await fetch('https://formspree.io/f/mwvzdpjj', {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        const result = await res.json();
+
+        if (result.ok) {
+          showThankYouBanner();
+          showPage('workwithme');
+          form.reset();
+        } else {
+          const errors = result.errors ? result.errors.map(err => err.message).join(', ') : 'Unknown error';
+          alert('Something went wrong: ' + errors + '. Please try again or email Rajiv directly.');
+        }
+      } catch (err) {
+        alert('Network error. Please check your connection and try again.');
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = origText;
+      }
+    }
+
+    function showThankYouBanner() {
+      const banner = document.getElementById('thank-you-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      setTimeout(() => { banner.style.display = 'none'; }, 6000);
+    }
+
+    /* ─── Fallback: handle ?sent=true from old redirect flow ─── */
     function checkFormSubmission() {
       if (window.location.search.includes('sent=true')) {
         showPage('workwithme');
-        const banner = document.getElementById('thank-you-banner');
-        if (banner) {
-          banner.style.display = 'block';
-          setTimeout(() => { banner.style.display = 'none'; }, 6000);
-        }
-        // Clean the URL
+        showThankYouBanner();
         window.history.replaceState({}, '', '/');
       }
     }
