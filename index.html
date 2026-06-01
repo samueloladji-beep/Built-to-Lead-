@@ -767,16 +767,62 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
-      .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
       .two-col.reverse { direction: ltr; }
       nav ul { display: none; }
       .hamburger { display: flex; }
+      .headshot-img { max-width: 100%; }
     }
 
     @media (max-width: 600px) {
-      .section { padding: 3.5rem 0; }
-      .hero { padding: 5rem 0 4rem; }
+      /* Base */
+      body { font-size: 16px; line-height: 1.75; }
+      .section { padding: 3rem 0; }
       .container { padding: 0 1.25rem; }
+
+      /* Hero */
+      .hero { padding: 4rem 0 3rem; }
+      .hero h1 { font-size: clamp(1.75rem, 8vw, 2.6rem); margin-bottom: 1rem; }
+      .hero-sub { font-size: 0.95rem; margin-bottom: 1.75rem; }
+      .hero-inner { max-width: 100%; }
+      .hero-eyebrow { margin-bottom: 1rem; }
+
+      /* Section titles */
+      h2.section-title { font-size: clamp(1.35rem, 6vw, 1.9rem); }
+      .cta-band h2 { font-size: clamp(1.4rem, 6vw, 2rem); }
+      .cta-band { padding: 4rem 0; }
+      .cta-band p { font-size: 0.95rem; }
+
+      /* Buttons — full width on mobile */
+      .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+      .hero .cta-btn { margin-top: 0; }
+
+      /* Speaking photo — shorter crop on mobile */
+      .headshot-img { height: 360px !important; max-height: 360px !important; }
+
+      /* Pull quote */
+      .pull-quote { padding: 1rem 1.25rem; margin: 1.75rem 0; }
+      .pull-quote p { font-size: 1.1rem; }
+
+      /* Credential card on About page — stack vertically */
+      .credential-card-row { flex-direction: column !important; gap: 1rem !important; }
+
+      /* Steps / process blocks */
+      .step { padding: 1.25rem; }
+
+      /* Cards / segment boxes */
+      .segment-card { padding: 1.5rem; }
+
+      /* Headshot badge — tuck inside on small screens */
+      .headshot-badge { right: 0; bottom: -1rem; font-size: 0.65rem; padding: 0.6rem 1rem; }
+
+      /* Form */
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select { font-size: 16px; } /* prevent iOS zoom */
+
+      /* Footer */
+      .footer-social { gap: 0.75rem; }
     }
 
     /* ─── Animate on scroll (simple) ─── */
@@ -1025,7 +1071,7 @@
             <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
             <p>That journey led him here, to leaders. Because the people who carry the most are often the ones being carried the least.</p>
             <p>Built to Lead is the result of everything Rajiv has learned, a coaching process designed to help leaders break through what's been holding them back, build a life rhythm that is naturally woven into everything they carry, and expand their capacity to sustain everything they've been called to do.</p>
-            <div style="margin-top:2.5rem; display:flex; align-items:flex-start; gap:1.5rem; padding:1.75rem; background:var(--cream); border-radius:12px; border-left:4px solid var(--amber);">
+            <div class="credential-card-row" style="margin-top:2.5rem; display:flex; align-items:flex-start; gap:1.5rem; padding:1.75rem; background:var(--cream); border-radius:12px; border-left:4px solid var(--amber);">
               <img src="rajiv-headshot.png" alt="Rajiv Harry" style="width:100px; height:130px; border-radius:8px; object-fit:cover; object-position:center top; flex-shrink:0; box-shadow:0 8px 24px rgba(0,0,0,0.12);" />
               <div>
                 <p style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; color:var(--black); margin-bottom:0.35rem;">Rajiv Harry</p>
