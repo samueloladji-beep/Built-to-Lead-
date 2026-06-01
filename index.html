@@ -810,6 +810,10 @@
       /* Steps / process blocks */
       .step { padding: 1.25rem; }
 
+      /* Included cards — force 1 column, reset span on mobile */
+      .included-grid { grid-template-columns: 1fr !important; }
+      .included-item[style*="span"] { grid-column: span 1 !important; }
+
       /* Cards / segment boxes */
       .segment-card { padding: 1.5rem; }
 
