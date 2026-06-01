@@ -6,43 +6,44 @@
   <title>Built to Lead | Rajiv Harry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal:   #2C6E6A;
-      --clay:   #8B6F5E;
-      --amber:  #C4944A;
-      --cream:  #F5F0EB;
-      --black:  #1C1C1C;
+      --teal:       #2C6E6A;
+      --clay:       #8B6F5E;
+      --amber:      #C4944A;
+      --cream:      #F5F0EB;
+      --black:      #1A1A1A;
+      --soft-white: #FAFAF8;
       --teal-light: #3a8a85;
       --cream-dark: #EDE6DC;
-      --white: #ffffff;
+      --white:      #ffffff;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.8;
       color: var(--black);
       background: var(--cream);
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Playfair Display', Georgia, serif;
       line-height: 1.2;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     h5, h6, label, nav, .tag, .step-number, .cta-btn {
       font-family: 'DM Sans', sans-serif;
     }
 
-    p { margin-bottom: 1.25rem; }
+    p { margin-bottom: 1.5rem; }
     p:last-child { margin-bottom: 0; }
 
     img { max-width: 100%; display: block; }
@@ -71,10 +72,10 @@
     }
 
     .nav-logo {
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--teal);
+      color: var(--black);
       cursor: pointer;
       letter-spacing: 0.02em;
       text-decoration: none;
@@ -114,14 +115,14 @@
     nav ul li a.active { color: var(--teal); font-weight: 600; }
 
     nav ul li.cta-nav a {
-      background: var(--teal);
-      color: var(--white);
+      background: var(--black);
+      color: var(--soft-white);
       padding: 0.45rem 1.1rem;
     }
 
     nav ul li.cta-nav a:hover {
-      background: var(--teal-light);
-      color: var(--white);
+      background: #333;
+      color: var(--soft-white);
     }
 
     /* ─── Hamburger ─── */
@@ -187,8 +188,8 @@
     }
 
     .section-dark {
-      background: var(--teal);
-      color: var(--white);
+      background: var(--black);
+      color: var(--soft-white);
     }
 
     .section-clay {
@@ -209,13 +210,13 @@
 
     h2.section-title {
       font-size: clamp(1.6rem, 3vw, 2.4rem);
-      color: var(--teal);
+      color: var(--black);
       margin-bottom: 1.5rem;
     }
 
-    .section-dark h2.section-title { color: var(--white); }
-    .section-dark p { color: rgba(255,255,255,0.88); }
-    .section-dark h3 { color: var(--white); }
+    .section-dark h2.section-title { color: var(--soft-white); }
+    .section-dark p { color: rgba(250,250,248,0.85); }
+    .section-dark h3 { color: var(--soft-white); }
 
     .divider {
       width: 48px;
@@ -243,73 +244,79 @@
     .cta-btn:hover { transform: translateY(-1px); }
 
     .cta-primary {
-      background: var(--teal);
-      color: var(--white);
+      background: var(--black);
+      color: var(--soft-white);
     }
 
-    .cta-primary:hover { background: var(--teal-light); color: var(--white); }
+    .cta-primary:hover { background: #333; color: var(--soft-white); }
 
     .cta-outline {
       background: transparent;
-      color: var(--teal);
-      border: 2px solid var(--teal);
+      color: var(--black);
+      border: 2px solid var(--black);
     }
 
-    .cta-outline:hover { background: var(--teal); color: var(--white); }
+    .cta-outline:hover { background: var(--black); color: var(--soft-white); }
 
     .cta-amber {
       background: var(--amber);
-      color: var(--white);
+      color: var(--black);
+      font-weight: 600;
     }
 
-    .cta-amber:hover { background: #b8863e; color: var(--white); }
+    .cta-amber:hover { background: #b8863e; color: var(--black); }
 
     .cta-white {
-      background: var(--white);
-      color: var(--teal);
+      background: var(--soft-white);
+      color: var(--black);
     }
 
     .cta-white:hover { background: var(--cream); }
 
     /* ─── Hero ─── */
     .hero {
-      background: var(--teal);
-      color: var(--white);
-      padding: 7rem 0 6rem;
+      background-color: var(--black);
+      background-size: cover;
+      background-position: center;
+      color: var(--soft-white);
+      padding: 7.5rem 0 6.5rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
+    /* Dark overlay for photo heroes */
+    .hero.has-photo::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(196,148,74,0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse at 10% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+      background: rgba(26,26,26,0.60);
+      z-index: 0;
     }
 
     .hero-inner {
       position: relative;
       max-width: 820px;
+      z-index: 1;
     }
 
     .hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.12;
-      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: var(--soft-white);
       margin-bottom: 1.5rem;
+      font-weight: 700;
     }
 
     .hero h1 em {
       font-style: italic;
-      color: rgba(255,255,255,0.85);
+      color: rgba(250,250,248,0.88);
     }
 
     .hero-sub {
-      font-family: 'Source Serif 4', serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.82);
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--amber);
       max-width: 600px;
       margin-bottom: 2.5rem;
       line-height: 1.7;
@@ -317,9 +324,9 @@
 
     .hero-eyebrow {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--amber);
       margin-bottom: 1.5rem;
@@ -327,18 +334,16 @@
 
     /* ─── Pull Quote ─── */
     .pull-quote {
-      border-left: 4px solid var(--amber);
+      border-left: 3px solid var(--amber);
       padding: 1.5rem 2rem;
-      margin: 3rem 0;
-      background: rgba(196,148,74,0.07);
-      border-radius: 0 8px 8px 0;
+      margin: 2.5rem 0;
     }
 
     .pull-quote p {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
       font-style: italic;
-      color: var(--teal);
+      color: var(--black);
       line-height: 1.5;
       margin-bottom: 0.5rem;
     }
@@ -350,6 +355,9 @@
       color: var(--clay);
       letter-spacing: 0.08em;
     }
+
+    /* Pull quote on dark sections */
+    .section-dark .pull-quote p { color: var(--soft-white); }
 
     /* ─── Steps ─── */
     .steps-grid {
@@ -385,7 +393,7 @@
 
     .step-card h3 {
       font-size: 1.05rem;
-      color: var(--teal);
+      color: var(--black);
       margin-bottom: 0.75rem;
     }
 
@@ -470,17 +478,17 @@
 
     /* ─── About card ─── */
     .about-card {
-      background: var(--teal);
-      color: var(--white);
+      background: var(--black);
+      color: var(--soft-white);
       padding: 3rem;
       border-radius: 12px;
       position: relative;
     }
 
     .about-card .section-label { color: var(--amber); }
-    .about-card h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .about-card .subtitle { color: rgba(255,255,255,0.7); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-bottom: 1.5rem; }
-    .about-card p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.8; }
+    .about-card h3 { color: var(--soft-white); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .about-card .subtitle { color: rgba(250,250,248,0.65); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .about-card p { color: rgba(250,250,248,0.85); font-size: 0.95rem; line-height: 1.8; }
 
     /* ─── Included card ─── */
     .included-grid {
@@ -494,7 +502,7 @@
       padding: 1.5rem;
       background: var(--cream);
       border-radius: 8px;
-      border-left: 3px solid var(--teal);
+      border-left: 3px solid var(--amber);
     }
 
     .section-alt .included-item { background: var(--cream); }
@@ -536,7 +544,7 @@
 
     .resource-card h3 {
       font-size: 1.1rem;
-      color: var(--teal);
+      color: var(--black);
       margin-bottom: 0.75rem;
     }
 
@@ -625,7 +633,7 @@
       padding: 0.85rem 1rem;
       border: 1.5px solid var(--cream-dark);
       border-radius: 6px;
-      font-family: 'Source Serif 4', serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1rem;
       color: var(--black);
       background: var(--white);
@@ -643,23 +651,23 @@
 
     /* ─── Closing CTA band ─── */
     .cta-band {
-      padding: 5rem 0;
-      background: var(--teal);
+      padding: 6rem 0;
+      background: var(--black);
       text-align: center;
     }
 
     .cta-band h2 {
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--white);
+      color: var(--soft-white);
       margin-bottom: 1rem;
     }
 
     .cta-band p {
-      color: rgba(255,255,255,0.8);
+      color: var(--amber);
       max-width: 540px;
-      margin: 0 auto 2rem;
-      font-size: 1.05rem;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
     }
 
     /* ─── Footer ─── */
@@ -681,7 +689,7 @@
       border-radius: 10px;
       padding: 2.5rem;
       background: var(--white);
-      border-top: 4px solid var(--teal);
+      border-top: 3px solid var(--black);
     }
 
     .segment-callout.amber { border-top-color: var(--amber); }
@@ -689,7 +697,7 @@
 
     .segment-callout h3 {
       font-size: 1.25rem;
-      color: var(--teal);
+      color: var(--black);
       margin-bottom: 0.75rem;
     }
 
@@ -831,13 +839,10 @@
   <div class="page active" id="page-home">
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero has-photo" style="background-image: url('photo-hero-bw.jpg'); padding: 9rem 0 8rem;">
       <div class="container">
         <div class="hero-inner">
-          <p class="hero-eyebrow">Built to Lead · Health &amp; Wellness Coaching</p>
-          <h1>You've been leading others well.<br><em>It's time someone helped you lead yourself.</em></h1>
-          <p class="hero-sub">Built to Lead is a health and wellness coaching program for leaders who are ready to build the foundation that sustains everything they're called to do.</p>
-          <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-amber">Book a Discovery Call</a>
+          <h1>Your health isn't separate<br>from your leadership.<br><em>It's the foundation of it.</em></h1>
         </div>
       </div>
     </section>
@@ -853,7 +858,7 @@
             <p>You show up every day. For your team. For your congregation. For the people counting on you.</p>
             <p>But somewhere in all of that, your health got pushed to the back. Not because you don't care. Because there was always something more urgent. Someone who needed more.</p>
             <p>And now you feel it. The low energy. The mental fog. The habits that never seem to stick. The stress that follows you home.</p>
-            <p style="font-family:'Lora',serif; font-style:italic; font-size:1.15rem; color:var(--teal);">You've been leading from whatever is left. And whatever is left isn't enough.</p>
+            <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.15rem; color:var(--black);">You've been leading from whatever is left. And whatever is left isn't enough.</p>
           </div>
         </div>
       </div>
@@ -870,7 +875,7 @@
             <p>Most leaders have tried to fix this. A new workout routine. A diet. A book. More information.</p>
             <p>But information was never the problem.</p>
             <p>What's been missing is a process. Someone to help you unpack what's actually getting in the way and build something simple, structured, and sustainable that fits your real life.</p>
-            <p style="font-family:'DM Sans',sans-serif; font-weight:600; color:var(--teal); font-size:1rem;">That's what Built to Lead is.</p>
+            <p style="font-family:'DM Sans',sans-serif; font-weight:600; color:var(--black); font-size:1rem;">That's what Built to Lead is.</p>
           </div>
           <div>
             <div class="pull-quote">
@@ -993,11 +998,11 @@
   <!-- PAGE: ABOUT -->
   <!-- ════════════════════════════════════════════════ -->
   <div class="page" id="page-about">
-    <section class="hero" style="padding:5rem 0 4rem;">
+    <section class="hero" style="padding:6rem 0 5rem;">
       <div class="container">
         <div class="hero-inner">
-          <p class="hero-eyebrow">About</p>
-          <h1>There has always been a lack of care for those who care for others.</h1>
+          <p class="hero-eyebrow">About Rajiv Harry</p>
+          <h1>There has always been a lack of care<br>for those who care for others.</h1>
           <p class="hero-sub">I see that gap and I've built my life's work around closing it.</p>
         </div>
       </div>
@@ -1007,8 +1012,8 @@
       <div class="container">
         <div class="two-col fade-in" style="align-items:flex-start; gap:4rem;">
           <div class="headshot-wrap">
-            <img src="rajiv-headshot.png" alt="Rajiv Harry, Health &amp; Wellness Transformation Coach" class="headshot-img" />
-            <div class="headshot-badge">Certified Health &amp;<br>Wellness Coach</div>
+            <img src="photo-about-speaking.jpg" alt="Rajiv Harry speaking" class="headshot-img" style="object-position: top center;" />
+            <div class="headshot-badge" style="background:var(--black);">Health &amp; Wellness<br>Transformation Coach</div>
           </div>
           <div>
             <p class="section-label">The Story</p>
@@ -1019,9 +1024,13 @@
             <div class="pull-quote">
               <p>"That transformation lit a fire that has never gone out."</p>
             </div>
-            <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. As a certified health and wellness transformation coach, Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
+            <p>He went on to pursue a career in health and wellness, spending over a decade helping individuals build the habits, discipline, and life rhythms that create lasting change. Rajiv has worked with a wide range of individuals and learned deeply how people work, what limits them, and what finally helps them practice the healthy lifestyle they desire.</p>
             <p>That journey led him here, to leaders. Because the people who carry the most are often the ones being carried the least.</p>
             <p>Built to Lead is the result of everything Rajiv has learned, a coaching process designed to help leaders break through what's been holding them back, build a life rhythm that is naturally woven into everything they carry, and expand their capacity to sustain everything they've been called to do.</p>
+            <div style="margin-top:2rem;">
+              <img src="rajiv-headshot.png" alt="Rajiv Harry" style="width:120px; height:120px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid var(--cream-dark);" />
+              <p style="font-size:0.82rem; color:var(--clay); margin-top:0.75rem; font-family:'DM Sans',sans-serif;">Rajiv Harry is a health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1063,10 +1072,10 @@
             <p>Over time it shows up as low energy, inconsistent habits, mental fatigue, and stress that bleeds into every area of life.</p>
           </div>
           <div>
-            <div style="background:var(--teal); color:var(--white); padding:2.5rem; border-radius:10px;">
+            <div style="background:var(--black); color:var(--soft-white); padding:2.5rem; border-radius:10px;">
               <p class="section-label" style="color:var(--amber);">This Is Not a Fitness Program</p>
-              <h3 style="color:var(--white); font-size:1.3rem; margin-bottom:1rem;">Built to Lead is about capacity. Not performance.</h3>
-              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem;">This is not about getting in shape. It's about building the health and life rhythm that gives you the capacity to lead at the level you're called to, consistently, sustainably, and without burning out.</p>
+              <h3 style="color:var(--soft-white); font-size:1.3rem; margin-bottom:1rem;">Built to Lead is about capacity. Not performance.</h3>
+              <p style="color:rgba(250,250,248,0.85); font-size:0.95rem;">This is not about getting in shape. It's about building the health and life rhythm that gives you the capacity to lead at the level you're called to, consistently, sustainably, and without burning out.</p>
             </div>
           </div>
         </div>
@@ -1183,10 +1192,10 @@
             <p>You show up faithfully. For your congregation. For your family. For everyone God has placed in your life.</p>
             <p>But are you showing up for your health?</p>
             <p>Many pastoral leaders have never been given the space to prioritize their own health as an act of faithfulness to their calling.</p>
-            <p style="font-family:'Lora',serif; font-style:italic; color:var(--teal); font-size:1.1rem;">That changes here.</p>
+            <p style="font-family:'Playfair Display',serif; font-style:italic; color:var(--black); font-size:1.1rem;">That changes here.</p>
           </div>
           <div>
-            <div style="background:rgba(44,110,106,0.07); border-left:4px solid var(--teal); padding:2.5rem; border-radius:0 10px 10px 0;">
+            <div style="background:var(--cream-dark); border-left:3px solid var(--amber); padding:2.5rem; border-radius:0 10px 10px 0;">
               <p class="section-label">Not Just Who You Shepherd</p>
               <p>The people in your care need a leader who is whole. Not just capable. Not just available. <strong>Whole.</strong></p>
               <p>Your congregation needs it. Your family needs it. The people God has placed in your life need it.</p>
@@ -1253,7 +1262,7 @@
   <!-- PAGE: ORGANIZATIONAL WELLNESS -->
   <!-- ════════════════════════════════════════════════ -->
   <div class="page" id="page-org">
-    <section class="hero">
+    <section class="hero has-photo" style="background-image: url('photo-org-color.jpg'); padding: 9rem 0 8rem;">
       <div class="container">
         <div class="hero-inner">
           <p class="hero-eyebrow">Organizational Wellness</p>
@@ -1275,11 +1284,11 @@
             <p>The energy, clarity, and vitality of your leadership team is not separate from your mission. It is the foundation of it.</p>
           </div>
           <div>
-            <div style="background:var(--teal); color:var(--white); padding:2.5rem; border-radius:10px;">
+            <div style="background:var(--black); color:var(--soft-white); padding:2.5rem; border-radius:10px;">
               <p class="section-label" style="color:var(--amber);">What Built to Lead Brings</p>
-              <h3 style="color:var(--white); font-size:1.2rem; margin-bottom:1rem;">Health and capacity at the leadership level.</h3>
-              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem;">Built to Lead works with organizations to do what no standard wellness program can, build health and capacity at the leadership level and watch it shift the culture from the inside out.</p>
-              <p style="color:rgba(255,255,255,0.85); font-size:0.95rem; margin-top:1rem;">Each leader selected for the program receives the same 1:1 attention and personalized process as our individual clients. The same investment. The same transformation. Multiplied across your team.</p>
+              <h3 style="color:var(--soft-white); font-size:1.2rem; margin-bottom:1rem;">Health and capacity at the leadership level.</h3>
+              <p style="color:rgba(250,250,248,0.85); font-size:0.95rem;">Built to Lead works with organizations to do what no standard wellness program can, build health and capacity at the leadership level and watch it shift the culture from the inside out.</p>
+              <p style="color:rgba(250,250,248,0.85); font-size:0.95rem; margin-top:1rem;">Each leader selected for the program receives the same 1:1 attention and personalized process as our individual clients. The same investment. The same transformation. Multiplied across your team.</p>
             </div>
           </div>
         </div>
@@ -1293,7 +1302,7 @@
           <h2 class="section-title">Individual transformation that shifts culture.</h2>
           <div class="divider"></div>
           <p style="max-width:680px; margin-bottom:2rem;">Each leader goes through the Built to Lead process, unpacking what's getting in the way, anchoring their health to their purpose, and building a life rhythm that allows them to show up fully for the people they serve.</p>
-          <p style="max-width:680px; margin-bottom:3rem; font-style:italic; font-family:'Lora',serif; font-size:1.15rem;">As each leader shifts, something larger shifts too. The culture of your organization begins to reflect the health of the people leading it.</p>
+          <p style="max-width:680px; margin-bottom:3rem; font-style:italic; font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--soft-white);">As each leader shifts, something larger shifts too. The culture of your organization begins to reflect the health of the people leading it.</p>
         </div>
       </div>
     </section>
@@ -1344,106 +1353,110 @@
   <!-- PAGE: WORK WITH ME -->
   <!-- ════════════════════════════════════════════════ -->
   <div class="page" id="page-workwithme">
-    <section class="hero" style="padding:5rem 0 4rem;">
+    <section class="hero" style="padding:6rem 0 5rem;">
       <div class="container">
         <div class="hero-inner">
           <p class="hero-eyebrow">Work With Me</p>
-          <h1>If you've made it here, something resonated.</h1>
-          <p class="hero-sub">The next step is a discovery call. It's a conversation, not a sales pitch. We'll talk about where you are, what's been getting in the way, and whether Built to Lead is the right fit for you.</p>
+          <h1>If you've made it here,<br>something resonated.</h1>
+          <p class="hero-sub">The next step is a discovery call. A conversation, not a sales pitch.</p>
         </div>
       </div>
     </section>
 
     <section class="section section-alt">
       <div class="container">
-        <div class="two-col fade-in">
-          <div>
-            <p class="section-label">Book Your Discovery Call</p>
-            <h2 class="section-title">A 30-minute conversation, no pressure, no obligation.</h2>
-            <div class="divider"></div>
+        <div class="two-col fade-in" style="align-items:flex-start; gap:5rem;">
 
-            <div style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2.5rem;">
-              <div class="included-item">
-                <p style="font-weight:600; margin-bottom:0.25rem;">No pressure, no obligation</p>
+          <!-- LEFT: Headshot -->
+          <div>
+            <img src="rajiv-headshot-2.png" alt="Rajiv Harry" style="width:100%; border-radius:12px; object-fit:cover; object-position:center top; display:block;" />
+          </div>
+
+          <!-- RIGHT: Booking + Form stacked -->
+          <div style="display:flex; flex-direction:column; gap:3.5rem;">
+
+            <!-- Book a Discovery Call -->
+            <div>
+              <p class="section-label">Book Your Discovery Call</p>
+              <h2 class="section-title">A 30-minute conversation, no pressure, no obligation.</h2>
+              <div class="divider"></div>
+              <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem;">
+                <div class="included-item"><p>Space to talk about what you're carrying and what you're looking for</p></div>
+                <div class="included-item"><p>Honest guidance on whether this program is right for you</p></div>
+                <div class="included-item"><p>No obligation. Just an honest conversation.</p></div>
               </div>
-              <div class="included-item">
-                <p style="font-weight:600; margin-bottom:0.25rem;">Space to talk about what you're carrying and what you're looking for</p>
-              </div>
-              <div class="included-item">
-                <p style="font-weight:600; margin-bottom:0.25rem;">Honest guidance on whether this program is right for you</p>
-              </div>
+              <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-primary" style="font-size:1rem; padding:1rem 2.5rem;">Book Your Discovery Call</a>
             </div>
 
-            <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-primary" style="font-size:1rem; padding:1rem 2.5rem;">Book Your Discovery Call</a>
-
-            <p style="margin-top:2.5rem; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--clay);">Prefer to reach out first?</p>
-          </div>
-
-          <div>
-            <p class="section-label">Send a Message</p>
-            <h2 class="section-title">Start the conversation.</h2>
-            <div class="divider"></div>
-            <form class="contact-form" id="contact-form" onsubmit="handleForm(event)">
-              <input type="hidden" name="_subject" value="New Inquiry - Built to Lead" />
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required />
-              </div>
-              <div class="form-group">
-                <label for="role">Your Role</label>
-                <select id="role" name="role">
-                  <option value="">Select one…</option>
-                  <option>Executive / Business Leader</option>
-                  <option>Pastoral / Faith Leader</option>
-                  <option>Manager / Team Leader</option>
-                  <option>Caregiver / Community Member</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Where are you in your wellness journey right now?</label>
-                <div style="display:flex; flex-direction:column; gap:0.65rem; margin-top:0.25rem;">
-                  <label class="journey-option">
-                    <input type="radio" name="journey" value="just-starting" />
-                    <span class="journey-label">
-                      <strong>Just getting started</strong>
-                      <span>I haven't had consistent health habits in a while and I'm ready to change that.</span>
-                    </span>
-                  </label>
-                  <label class="journey-option">
-                    <input type="radio" name="journey" value="tried-before" />
-                    <span class="journey-label">
-                      <strong>I've tried before but it doesn't stick</strong>
-                      <span>I know what I should be doing, but something keeps getting in the way.</span>
-                    </span>
-                  </label>
-                  <label class="journey-option">
-                    <input type="radio" name="journey" value="some-habits" />
-                    <span class="journey-label">
-                      <strong>I have some habits but need structure</strong>
-                      <span>I'm doing a few things right but I need accountability and a real plan.</span>
-                    </span>
-                  </label>
-                  <label class="journey-option">
-                    <input type="radio" name="journey" value="burnt-out" />
-                    <span class="journey-label">
-                      <strong>I'm consistent but running on empty</strong>
-                      <span>I show up for everyone else but my own health has been the last priority.</span>
-                    </span>
-                  </label>
+            <!-- Contact Form -->
+            <div>
+              <p class="section-label">Send a Message</p>
+              <h2 class="section-title">Start the conversation.</h2>
+              <div class="divider"></div>
+              <p style="color:var(--clay); font-size:0.9rem; margin-bottom:0.5rem;">Prefer to reach out before booking? Send a message and Rajiv will be in touch.</p>
+              <form class="contact-form" id="contact-form" onsubmit="handleForm(event)">
+                <input type="hidden" name="_subject" value="New Inquiry - Built to Lead" />
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required />
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="message">Anything else you'd like me to know?</label>
-                <textarea id="message" name="message" placeholder="Share anything that feels relevant — what you're carrying, what you're hoping for, or what's been getting in the way."></textarea>
-              </div>
-              <button type="submit" class="cta-btn cta-primary" style="width:100%; font-size:1rem;">Send Message</button>
-            </form>
-          </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="role">Your Role</label>
+                  <select id="role" name="role">
+                    <option value="">Select one…</option>
+                    <option>Executive / Business Leader</option>
+                    <option>Pastoral / Faith Leader</option>
+                    <option>Manager / Team Leader</option>
+                    <option>Caregiver / Community Member</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Where are you in your wellness journey right now?</label>
+                  <div style="display:flex; flex-direction:column; gap:0.65rem; margin-top:0.25rem;">
+                    <label class="journey-option">
+                      <input type="radio" name="journey" value="just-starting" />
+                      <span class="journey-label">
+                        <strong>Just getting started</strong>
+                        <span>I haven't had consistent health habits in a while and I'm ready to change that.</span>
+                      </span>
+                    </label>
+                    <label class="journey-option">
+                      <input type="radio" name="journey" value="tried-before" />
+                      <span class="journey-label">
+                        <strong>I've tried before but it doesn't stick</strong>
+                        <span>I know what I should be doing, but something keeps getting in the way.</span>
+                      </span>
+                    </label>
+                    <label class="journey-option">
+                      <input type="radio" name="journey" value="some-habits" />
+                      <span class="journey-label">
+                        <strong>I have some habits but need structure</strong>
+                        <span>I'm doing a few things right but I need accountability and a real plan.</span>
+                      </span>
+                    </label>
+                    <label class="journey-option">
+                      <input type="radio" name="journey" value="burnt-out" />
+                      <span class="journey-label">
+                        <strong>I'm consistent but running on empty</strong>
+                        <span>I show up for everyone else but my own health has been the last priority.</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="message">Anything else you'd like me to know?</label>
+                  <textarea id="message" name="message" placeholder="Share anything that feels relevant — what you're carrying, what you're hoping for, or what's been getting in the way."></textarea>
+                </div>
+                <button type="submit" class="cta-btn cta-primary" style="width:100%; font-size:1rem;">Send Message</button>
+              </form>
+            </div>
+
+          </div><!-- /right col -->
         </div>
       </div>
     </section>
