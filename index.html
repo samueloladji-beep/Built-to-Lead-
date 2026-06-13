@@ -856,7 +856,7 @@
     .dropdown-menu {
       display: none;
       position: absolute;
-      top: calc(100% + 6px);
+      top: 100%;
       left: 0;
       background: var(--white);
       border: 1px solid var(--cream-dark);
@@ -864,10 +864,20 @@
       box-shadow: 0 8px 28px rgba(0,0,0,0.13);
       min-width: 210px;
       z-index: 200;
-      padding: 0.4rem 0;
+      padding: 0.5rem 0 0.4rem;
     }
 
     .nav-dropdown:hover .dropdown-menu { display: block; }
+
+    /* Invisible bridge between nav item and menu so hover doesn't break */
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+    }
 
     .dropdown-menu li { display: block; }
 
@@ -998,11 +1008,11 @@
           <li><a onclick="showPage('home')"       href="#">Home</a></li>
           <li><a onclick="showPage('about')"      href="#">About</a></li>
           <li class="nav-dropdown">
-            <a href="#">Services</a>
+            <a href="#" onclick="return false;">Services</a>
             <ul class="dropdown-menu">
-              <li><a onclick="showPage('leader');event.stopPropagation()"   href="#">Leader Coaching</a></li>
-              <li><a onclick="showPage('pastoral');event.stopPropagation()" href="#">Pastoral Care</a></li>
-              <li><a onclick="showPage('org');event.stopPropagation()"      href="#">Organizational Wellness</a></li>
+              <li><a onclick="showPage('leader')"   href="#">Leader Coaching</a></li>
+              <li><a onclick="showPage('pastoral')" href="#">Pastoral Care</a></li>
+              <li><a onclick="showPage('org')"      href="#">Organizational Wellness</a></li>
             </ul>
           </li>
           <li><a onclick="showPage('resources')"  href="#">Resources</a></li>
@@ -1070,9 +1080,9 @@
             <p class="section-label">The Missing Piece</p>
             <h2 class="section-title">Information was never the problem.</h2>
             <div class="divider"></div>
-            <p>Most leaders have tried to fix this. A new workout routine. A diet. A book. More information.</p>
+            <p>Most leaders have tried to fix this. A new routine. A diet. More information.</p>
             <p>But information was never the problem.</p>
-            <p>What's been missing is a process. Someone to help you unpack what's actually getting in the way and build something simple, structured, and sustainable that fits your real life.</p>
+            <p>What's been missing is a process and someone to link arms with you through it.</p>
             <p style="font-family:'DM Sans',sans-serif; font-weight:600; color:var(--black); font-size:1rem;">That process starts with this: I help you access the solutions that live within you.</p>
           </div>
           <div>
@@ -1097,11 +1107,9 @@
           <!-- LEFT: Text -->
           <div>
             <p class="section-label">About Rajiv</p>
-            <h2 class="section-title">There has always been a lack of care for those who care for others.</h2>
             <div class="divider"></div>
-            <p>I see that gap and I've built my life's work around closing it.</p>
-            <p>I'm Rajiv Harry — a health and wellness transformation coach with over a decade of experience helping individuals and leaders build the health and capacity to sustain everything they are called to do.</p>
-            <a href="#" onclick="showPage('about')" class="cta-btn cta-primary" style="margin-top:1.5rem; font-size:0.88rem;">Read My Full Story →</a>
+            <p style="font-family:'Playfair Display',serif; font-size:1.25rem; line-height:1.55; color:var(--black);">There has always been a lack of care for those who care for others. I see that gap and I've built my life's work around closing it.</p>
+            <a href="#" onclick="showPage('about')" class="cta-btn cta-primary" style="margin-top:1.75rem; font-size:0.88rem;">Read My Full Story →</a>
           </div>
 
           <!-- RIGHT: Cream headshot -->
@@ -1148,7 +1156,7 @@
             <div style="display:flex; flex-direction:column; gap:1.25rem;">
               <div class="segment-callout">
                 <h3>Leaders &amp; Executives</h3>
-                <p>Executives, managers, team leaders, and high-responsibility individuals who are ready to stop leading on empty and build something that actually supports them.</p>
+                <p>Built to Lead is for any leader carrying real responsibility — executives, managers, team leaders, and anyone who pours out consistently into the people they lead.</p>
                 <a href="#" onclick="showPage('leader')" class="cta-btn cta-outline" style="margin-top:1rem; font-size:0.82rem; padding:0.6rem 1.2rem;">Explore Leader Coaching →</a>
               </div>
               <div class="segment-callout amber">
@@ -1158,7 +1166,7 @@
               </div>
               <div class="segment-callout" style="border-color:var(--teal);">
                 <h3 style="color:var(--teal);">Not a Leader?</h3>
-                <p>Explore articles, guides, and tools to support your health journey wherever you are.</p>
+                <p>Your health matters too. Explore resources built for everyday people who are ready to start.</p>
                 <a href="#" onclick="showPage('resources')" class="cta-btn cta-outline" style="margin-top:1rem; font-size:0.82rem; padding:0.6rem 1.2rem; border-color:var(--teal); color:var(--teal);">Explore Resources →</a>
               </div>
             </div>
@@ -1243,7 +1251,7 @@
         <div class="testimonial-block">
           <img src="derrill-corbin.jpg" alt="Derrill Corbin" />
           <div>
-            <blockquote>"Perhaps my biggest breakthrough so far has been discovering how deeply dehumanizing leadership in a consumer-driven world can be. I found myself producing for others while neglecting the most basic stewardship of my own body. Working with Rajiv has given me language, tools, and a framework to understand what was happening — and why it had to change. I now know I can move beyond it and steward well everything under my care, starting with my own body."</blockquote>
+            <blockquote>"Perhaps my biggest breakthrough so far has been discovering how deeply dehumanizing leadership in a consumer-driven world can be. To produce for others at the expense of self is the inevitable outcome of submitting uncritically to the demands of that kind of leadership. But discovering the importance of self-leadership — being given agency again and being intentionally supported in that process — has brought me to a profound realization: I had been living in a self-defeating cycle. More than that, I now know I can move beyond it and steward well everything under my care, starting with my own body."</blockquote>
             <cite>Derrill Corbin — Senior Pastor, Mannahouse</cite>
           </div>
         </div>
@@ -1336,23 +1344,24 @@
           <p class="section-label">Why This Works</p>
           <h2 class="section-title">A process built differently, on purpose.</h2>
           <div class="divider"></div>
+          <p style="max-width:680px; margin-bottom:2.5rem;">Most programs fail not because the information is wrong — but because they tell you what to do without addressing why you haven't done it. Built to Lead works because it starts where the real problem lives.</p>
         </div>
         <div class="why-grid fade-in">
           <div class="why-card">
             <h4>It Meets You Where You Are</h4>
-            <p>No generic plans. No one-size-fits-all approach. The process begins with your life, your schedule, your demands, and builds from there.</p>
+            <p>No generic plan. The process begins with your life, your patterns, your specific obstacles. What works for you is built around you.</p>
           </div>
           <div class="why-card">
             <h4>It Anchors Change to Something That Lasts</h4>
-            <p>Motivation fades. Purpose holds. We connect your health to what you're actually building — so when resistance comes, you have something to come back to.</p>
+            <p>Motivation fades. Built to Lead anchors your health to your purpose so it holds when motivation doesn't.</p>
           </div>
           <div class="why-card">
             <h4>It Addresses the Whole Person</h4>
-            <p>Movement, nutrition, recovery, stress — not as separate programs but as one integrated rhythm woven into the life you're already living.</p>
+            <p>Health is not just physical. This process holds the mental, emotional, and spiritual because lasting change requires all of it.</p>
           </div>
           <div class="why-card">
             <h4>It Builds Identity, Not Just Habits</h4>
-            <p>Habits can break. Identity holds. When the shift happens at the level of who you believe you are, the behaviors follow naturally and consistently.</p>
+            <p>Habits break. Identity holds. The goal is not a better routine — it's a shift in how you see yourself.</p>
           </div>
         </div>
       </div>
@@ -1382,7 +1391,7 @@
               <div class="included-item"><p>Biweekly one-on-one coaching sessions</p></div>
               <div class="included-item"><p>Practices built around your real life and lifestyle</p></div>
               <div class="included-item"><p>Accountability and support between sessions</p></div>
-              <div class="included-item" style="grid-column:span 2;"><p>A process built around your real life, not a generic plan</p></div>
+              <div class="included-item" style="grid-column:span 2;"><p>A process built around you, not a generic plan</p></div>
             </div>
           </div>
         </div>
@@ -1405,7 +1414,7 @@
     <div class="cta-band">
       <div class="container">
         <h2>The best leaders aren't just skilled. They're whole.</h2>
-        <p>Let's build that. A 30-minute conversation — no pressure, no obligation.</p>
+        <p>Let's build that.</p>
         <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-amber">Book a Discovery Call</a>
       </div>
     </div>
@@ -1423,6 +1432,29 @@
           <h1>You were called to lead.<br><em>Is your health built to sustain that calling?</em></h1>
           <p class="hero-sub">Many pastoral leaders have never been given the space to prioritize their own health as an act of faithfulness to their calling. That changes here.</p>
           <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-amber">Book a Discovery Call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Not Just Who You Shepherd -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="two-col fade-in">
+          <div>
+            <p class="section-label">Not Just Who You Shepherd</p>
+            <h2 class="section-title">The people in your care need a leader who is whole.</h2>
+            <div class="divider"></div>
+            <p>Not just capable. Not just available. <strong>Whole.</strong></p>
+            <p>Your congregation needs it. Your family needs it. The people God has placed in your life need it.</p>
+            <p>But so do you. Not just as a pastor. As a person.</p>
+          </div>
+          <div>
+            <div style="background:var(--cream-dark); border-left:3px solid var(--amber); padding:2.5rem; border-radius:0 10px 10px 0;">
+              <p class="section-label">Many Pastoral Leaders Have Never Been Given the Space</p>
+              <p>To prioritize their own health as an act of faithfulness to their calling.</p>
+              <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; color:var(--black);">That changes here.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1462,7 +1494,7 @@
             <h2 class="section-title">For those who pour out consistently.</h2>
             <div class="divider"></div>
             <p>Built to Lead: Called and Equipped is for pastoral leaders, ministry directors, and faith-driven leaders who are ready to close the gap between how well they care for others and how well they care for themselves.</p>
-            <p>You lead, serve, and pour into others consistently. The weight of that calling is real. But how is your health right now supporting the way you've been called to lead?</p>
+            <p>You lead, serve, and pour into others consistently. The weight of that calling is real. But how is your health right now supporting the way you've been called to lead? Let's unpack what's getting in the way and through simple, impactful daily practices, build the health that allows you to keep stepping into everything you were called to be.</p>
             <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-primary" style="margin-top:1rem;">Book a Discovery Call →</a>
           </div>
         </div>
@@ -1475,7 +1507,7 @@
         <div class="testimonial-block">
           <img src="derrill-corbin.jpg" alt="Derrill Corbin" />
           <div>
-            <blockquote>"Perhaps my biggest breakthrough so far has been discovering how deeply dehumanizing leadership in a consumer-driven world can be. I found myself producing for others while neglecting the most basic stewardship of my own body. Working with Rajiv has given me language, tools, and a framework to understand what was happening — and why it had to change. I now know I can move beyond it and steward well everything under my care, starting with my own body."</blockquote>
+            <blockquote>"I have been working with Rajiv for one year. He has been far more than a health and wellness coach — his unique and personal approach to who I am and what I carry has allowed him to coach me from a truly holistic point of view. He has spoken wisdom into the spiritual matters of my heart, into the complexities of leadership, and into how all of these things work together with self-leadership to build the best version of a whole person. I have found that his approach of meeting me where I am lifts a cloud of shame that so often accompanies the seasons where I have slid into the ditch again. And his relentless practice of pointing me back toward my personal north star helps me maintain a sense of vision and hope along the way. Rajiv has become a key partner in my overall life's success."</blockquote>
             <cite>Derrill Corbin — Senior Pastor, Mannahouse</cite>
           </div>
         </div>
@@ -1826,20 +1858,33 @@
       <div class="container">
         <div class="hero-inner">
           <p class="hero-eyebrow">Resources</p>
-          <h1>Tools and insights<br>for your health journey.</h1>
-          <p class="hero-sub">Articles, guides, and frameworks to help you build health and capacity — wherever you are in the process.</p>
+          <h1>You don't have to have a title<br>to need this.</h1>
+          <p class="hero-sub">Whether you're a parent, a caregiver, a community member — if your health has been the last thing on your list, this is where you start.</p>
         </div>
       </div>
     </section>
 
     <section class="section section-alt">
       <div class="container">
-        <div class="fade-in">
-          <p class="section-label">Coming Soon</p>
-          <h2 class="section-title">We're building something worth reading.</h2>
-          <div class="divider"></div>
-          <p style="max-width:620px;">Practical guides, reflections, and frameworks on health, leadership, and the rhythms that make both sustainable. Check back soon — or start a conversation in the meantime.</p>
-          <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-primary" style="margin-top:1.5rem;">Book a Discovery Call</a>
+        <div class="two-col fade-in" style="align-items:flex-start;">
+          <div>
+            <p class="section-label">What's Here</p>
+            <h2 class="section-title">Simple, practical tools built around your real life.</h2>
+            <div class="divider"></div>
+            <ul class="checklist" style="margin-top:1.5rem;">
+              <li>Nutrition guidance and food recommendations</li>
+              <li>Movement and mobility prescriptions</li>
+              <li>Wellness tools designed to meet you where you are</li>
+            </ul>
+          </div>
+          <div>
+            <div style="background:var(--cream-dark); border-left:3px solid var(--teal); padding:2.5rem; border-radius:0 10px 10px 0;">
+              <p class="section-label" style="color:var(--teal);">Ready to Start?</p>
+              <h3 style="font-size:1.2rem; margin-bottom:1rem;">Your health matters — leader or not.</h3>
+              <p style="font-size:0.95rem;">If you're ready to take the first step, start with a conversation. No pressure. Just an honest look at where you are and what would actually help.</p>
+              <a href="https://cal.com/rajiv-harry-qvgnal" target="_blank" rel="noopener" class="cta-btn cta-primary" style="margin-top:1.5rem;">Get Started</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
