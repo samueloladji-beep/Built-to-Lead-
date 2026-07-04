@@ -772,6 +772,8 @@
       nav ul { display: none; }
       .hamburger { display: flex; }
       .headshot-img { max-width: 100%; }
+      .testimonial-wall { grid-template-columns: 1fr; gap: 1.5rem; }
+      .t-card, .t-card-full { padding: 2rem; }
     }
 
     @media (max-width: 600px) {
@@ -797,8 +799,8 @@
       .cta-btn { display: block; width: 100%; text-align: center; box-sizing: border-box; }
       .hero .cta-btn { margin-top: 0; }
 
-      /* Speaking photo - shorter crop on mobile */
-      .headshot-img { height: 360px !important; max-height: 360px !important; }
+      /* Speaking photo - keep tight mid-torso crop on mobile */
+      .headshot-img { height: 220px !important; max-height: 220px !important; }
 
       /* Pull quote */
       .pull-quote { padding: 1rem 1.25rem; margin: 1.75rem 0; }
