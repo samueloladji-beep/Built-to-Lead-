@@ -772,8 +772,23 @@
       nav ul { display: none; }
       .hamburger { display: flex; }
       .headshot-img { max-width: 100%; }
-      .testimonial-wall { grid-template-columns: 1fr; gap: 1.5rem; }
+      .testimonial-wall { grid-template-columns: 1fr !important; gap: 1.5rem; }
       .t-card, .t-card-full { padding: 2rem; }
+      .t-card blockquote, .t-card-full blockquote { margin-bottom: 0.75rem; }
+      .t-read-more {
+        background: none;
+        border: none;
+        color: var(--amber);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0;
+        margin: 0 0 1.5rem;
+        display: block;
+      }
     }
 
     @media (max-width: 600px) {
@@ -2288,11 +2303,34 @@
       }
     }
 
+    /* ─── Mobile Read More for Testimonials ─── */
+    function initMobileReadMore() {
+      if (window.innerWidth > 900) return;
+      document.querySelectorAll('.t-card blockquote, .t-card-full blockquote').forEach(function(bq) {
+        var full = bq.textContent.trim();
+        var parts = full.split('. ');
+        if (parts.length <= 2) return;
+        var short = parts.slice(0, 2).join('. ') + '.';
+        bq.textContent = short;
+        var expanded = false;
+        var btn = document.createElement('button');
+        btn.className = 't-read-more';
+        btn.textContent = 'Read more';
+        btn.onclick = function() {
+          expanded = !expanded;
+          bq.textContent = expanded ? full : short;
+          btn.textContent = expanded ? 'Read less' : 'Read more';
+        };
+        bq.parentNode.insertBefore(btn, bq.nextElementSibling);
+      });
+    }
+
     /* ─── Init ─── */
     document.addEventListener('DOMContentLoaded', () => {
       observeFadeIns();
       updateActiveNav('home');
       checkFormSubmission();
+      initMobileReadMore();
     });
   </script>
 
